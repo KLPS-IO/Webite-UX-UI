@@ -128,13 +128,15 @@ const About = () => {
       </Title>
       <Left data-scroll data-scroll-sticky data-scroll-target="#fixed-target">
       Welcome to KLPS,
-      where we transform your personal experiences into the next wave of meaningful products designed just for you.
+      {/* where we transform your personal experiences into the next wave of meaningful products designed just for you.
       We’re not just another tech company—we’re a movement inspired by real people like you.
       KLPS is here to listen, understand, and reflect what matters most to women, kids, and parents
-      by creating products that feel like they were made specifically with you in mind.
+      by creating products that feel like they were made specifically with you in mind. */}
         <br />
         <br />
-        We offer unique and creative products to a wide range of people. We have a variety of
+        We offer unique and creative products to a wide range of people.
+
+        We custom make for a variety of
         styles, but for most people.
         <br />
         <br />

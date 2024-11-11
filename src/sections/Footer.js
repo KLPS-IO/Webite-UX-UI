@@ -126,10 +126,22 @@ const Footer = () => {
   return (
     <Section>
       <LogoContainer>
-        <img data-scroll data-scroll-speed="2" src={Logo} alt="KLPS" />
-        <h3 data-scroll data-scroll-speed="-1">
-          KLPS
-        </h3>
+        <svg width="600" height="400" viewBox="0 0 500 1300">
+
+        {/* Purple Shape */}
+        <polygon points="100,0 100,280 0 400 1,0" stroke="white" strokeWidth="15" fill="#FF00FF" />
+
+        {/* Small Bottom Middle Shape */}
+        <polygon points="170,200 100,280 100,400 180,400 " stroke="white" strokeWidth="15" fill="#FF00FF" />
+
+        {/* Right-side element */}
+        <path d="M175,120 L330,0.3 L450,4 L300,145 L500,399 L379,399 Z" stroke="white" strokeWidth="15" fill="#FF00FF" />
+
+        </svg>
+          {/* <img data-scroll data-scroll-speed="2" src={Logo} alt="KLPS" /> */}
+          {/* <h3 data-scroll data-scroll-speed="-1">
+            KLPS
+          </h3> */}
       </LogoContainer>
       <FooterComponent
         initial={{ y: "-400px" }}
@@ -142,7 +154,7 @@ const Footer = () => {
         <ul>
           <li onClick={() => handleScroll("#home")}>home</li>
           <li onClick={() => handleScroll(".about")}>about</li>
-          <li onClick={() => handleScroll("#ai")}>exploration</li>
+          <li onClick={() => handleScroll("#ai")}>explore</li>
           <li onClick={() => handleScroll("#shop")}>shop</li>
           <li>
             <a href="https://google.com" target="_blank" rel="noreferrer">
