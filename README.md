@@ -1,41 +1,66 @@
-# Webite-UX-UI
+# Website-UX-UI
 
-Folder Structure:
+## Repository Naming Convention
 
-    - assets => contains all the assests such as images, video and svg files
-    - componenets => React Components used to build this website
-    - sections => Includes sections such as Home, about etc...
-    - GlobalStyles.js => contains global styles for whole application
-    - Themes.js => contains Color and fonts size in variables
+We follow a structured naming convention for our repositories to maintain clarity and consistency:
 
+```
+<project-name>-<scope>-<descriptor>
+```
 
+Examples:
+- `KLPS-frontend-v1`: Frontend application for the KLPS project.
+- `KLPS-api`: Backend API for KLPS.
 
-Steps to run
+Ensure new repositories adhere to this convention for better collaboration.
 
-    - Make sure to open this directory in Terminal / CMD
-    - Run npm install
-    - Run npm start
+---
 
+## Folder Structure
 
+```
+- assets           => Contains all assets such as images, videos, and SVG files
+- components       => React components used to build this website
+- sections         => Includes sections such as Home, About, etc.
+- GlobalStyles.js  => Contains global styles for the entire application
+- Themes.js        => Contains color and font sizes as variables
+```
 
-External Libraries used in this project:
+---
 
-    - https://styled-components.com/docs
-    - https://greensock.com/gsap/
-    - https://www.npmjs.com/package/react-locomotive-scroll
-    - https://www.npmjs.com/package/locomotive-scroll
-    - https://www.framer.com/motion/
+## Steps to Run
 
-Fonts Are from:
+1. Open this directory in Terminal / CMD.
+2. Run `npm install` to install dependencies.
+3. Run `npm start` to start the application.
 
-        - https://fontsource.org/
+---
 
+## External Libraries Used
 
-All The Resources Used in This Website Are from👇:
+- [Styled Components](https://styled-components.com/docs)
+- [GSAP](https://greensock.com/gsap/)
+- [React Locomotive Scroll](https://www.npmjs.com/package/react-locomotive-scroll)
+- [Locomotive Scroll](https://www.npmjs.com/package/locomotive-scroll)
+- [Framer Motion](https://www.framer.com/motion/)
 
-Walking Girl Video:
-Video by cottonbro from Pexels [https://www.pexels.com/@cottonbro]
+---
 
-Images:
+## Fonts
 
-AI Generated
+All fonts are sourced from:
+- [Fontsource](https://fontsource.org/)
+
+---
+
+## Resources
+
+**Walking Girl Video:**  
+Video by cottonbro from Pexels  
+[https://www.pexels.com/@cottonbro]
+
+**Images:**  
+AI-generated.
+
+---
+
