@@ -68,7 +68,7 @@ const Banner = () => {
             data-scroll-speed="8"
             data-scroll-target="#up"
           >
-            Fashion is an armour{" "}
+            Underwear{" "}
           </span>
         </BannerComponent>
         <BannerComponent>
@@ -78,7 +78,7 @@ const Banner = () => {
             data-scroll-speed="-6"
             data-scroll-target="#up"
           >
-            to survive everyday life
+            Tailor Made
           </span>
         </BannerComponent>
         <BannerComponent>
@@ -88,7 +88,7 @@ const Banner = () => {
             data-scroll-speed="6"
             data-scroll-target="#up"
           >
-            One is never over-dressed or
+            By You
           </span>
         </BannerComponent>
         <BannerComponent>
@@ -98,7 +98,7 @@ const Banner = () => {
             data-scroll-speed="-4"
             data-scroll-target="#up"
           >
-            under-dressed
+            For You
           </span>
         </BannerComponent>
         <BannerComponent>
@@ -108,7 +108,7 @@ const Banner = () => {
             data-scroll-speed="6"
             data-scroll-target="#up"
           >
-            with a Little Black Dress
+            Shaped To You
           </span>
         </BannerComponent>
       </Container>

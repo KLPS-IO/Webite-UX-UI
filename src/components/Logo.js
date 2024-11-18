@@ -79,13 +79,13 @@ const Logo = () => {
         <svg width="600" height="400" viewBox="0 0 600 400">
 
           {/* Purple Shape */}
-          <polygon points="100,0 100,280 0 400 1,0" stroke="white" strokeWidth="15" fill="#white" />
+          <polygon points="100,0 100,280 0 400 1,0" stroke="white" strokeWidth="15" fill="#FF00FF" />
 
           {/* Small Bottom Middle Shape */}
-          <polygon points="170,200 100,280 100,400 180,400 " stroke="white" strokeWidth="15" fill="#white" />
+          <polygon points="170,200 100,280 100,400 180,400 " stroke="white" strokeWidth="15" fill="#FF00FF" />
 
           {/* Right-side element */}
-          <path d="M195,150 L330,0.3 L450,4 L300,145 L500,399 L379,399 Z" stroke="white" strokeWidth="15" fill="#white" />
+          <path d="M175,120 L330,0.3 L450,4 L300,145 L500,399 L379,399 Z" stroke="white" strokeWidth="15" fill="#FF00FF" />
 
           <g>
             <motion.path
