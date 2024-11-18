@@ -1,4 +1,10 @@
-[build]
+[[redirects]]
+  # Handle routing for single-page applications
+  from="/*"
+  to="/index.html"
+  status=200
+
+  [build]
   # Specify Node.js version
   node_version = "16"
 
@@ -8,8 +14,4 @@
   # Build command for most React apps (adjust if different in your project)
   command = "npm start"
 
-[[redirects]]
-  # Handle routing for single-page applications
-  from = "/*"
-  to = "/index.html"
-  status = 200
+
