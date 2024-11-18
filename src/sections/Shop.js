@@ -6,16 +6,16 @@ import { useRef } from "react";
 
 import { motion } from "framer-motion";
 
-import img1 from "/Users/emmamendez/Source/Klippies/KLPS Website/Webite-UX-UI/src/assets/Images/archFirstUnderwear.webp";
-import img2 from "/Users/emmamendez/Source/Klippies/KLPS Website/Webite-UX-UI/src/assets/Images/archTeenager.webp";
-import img3 from "/Users/emmamendez/Source/Klippies/KLPS Website/Webite-UX-UI/src/assets/Images/archCollegeAge.webp";
-import img4 from "/Users/emmamendez/Source/Klippies/KLPS Website/Webite-UX-UI/src/assets/Images/archYoungAdult.webp";
-import img5 from "/Users/emmamendez/Source/Klippies/KLPS Website/Webite-UX-UI/src/assets/Images/archYoungParents.webp";
-import img6 from "/Users/emmamendez/Source/Klippies/KLPS Website/Webite-UX-UI/src/assets/Images/archFathers.webp";
-import img7 from "/Users/emmamendez/Source/Klippies/KLPS Website/Webite-UX-UI/src/assets/Images/archNaturalFibres.webp";
-import img8 from "/Users/emmamendez/Source/Klippies/KLPS Website/Webite-UX-UI/src/assets/Images/archSexy.webp";
-import img9 from "/Users/emmamendez/Source/Klippies/KLPS Website/Webite-UX-UI/src/assets/Images/archGrownWoman.webp";
-import img10 from "/Users/emmamendez/Source/Klippies/KLPS Website/Webite-UX-UI/src/assets/Images/archLeavingRoom.png";
+import img1 from "../assets/Images/archFirstUnderwear.webp";
+import img2 from "../assets/Images/archTeenager.webp";
+import img3 from "../assets/Images/archCollegeAge.webp";
+import img4 from "../assets/Images/archYoungAdult.webp";
+import img5 from "../assets/Images/archYoungParents.webp";
+import img6 from "../assets/Images/archFathers.webp";
+import img7 from "../assets/Images/archNaturalFibres.webp";
+import img8 from "../assets/Images/archSexy.webp";
+import img9 from "../assets/Images/archGrownWoman.webp";
+import img10 from "../assets/Images/archLeavingRoom.png";
 
 const Section = styled.section`
   min-height: 100vh;

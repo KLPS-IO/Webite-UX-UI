@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import Logo from "../assets/Svgs/star_white_48dp.svg";
 import { motion } from "framer-motion";
 import { useLocomotiveScroll } from "react-locomotive-scroll";
 
@@ -182,7 +181,7 @@ const Footer = () => {
           >
             Made with &hearts; by &nbsp;
             <a
-              href=""
+              href="https://klps.netlify.app/"
               target="_blank"
               rel="noreferrer"
             >
