@@ -127,8 +127,8 @@ const Footer = () => {
       <LogoContainer>
         <svg width="600" height="400" viewBox="0 0 500 1300">
 
-        {/* Purple Shape */}
-        <polygon points="100,0 100,280 0 400 1,0" stroke="white" strokeWidth="15" fill="#FF00FF" />
+        {/* First Shape */}
+        <polygon points="100,0 100,280 10 400 10,0" stroke="white" strokeWidth="15" fill="#FF00FF" />
 
         {/* Small Bottom Middle Shape */}
         <polygon points="170,200 100,280 100,400 180,400 " stroke="white" strokeWidth="15" fill="#FF00FF" />
