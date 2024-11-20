@@ -194,20 +194,28 @@ const NewArrival = () => {
       <Overlay />
       <Title
         data-scroll
-        data-scroll-speed="-2"
+        data-scroll-speed="-4"
         data-scroll-direction="horizontal"
       >
         The Movement
       </Title>
 
-      <Container ref={ScrollingRef}>
+    <Container
+      ref={ScrollingRef}
+      style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      overflowX: 'auto',
+      overflowY: 'hidden',
+      width: '100%',
+    }}>
         <Product img={img1} title="Join the Conversation" />
         <Product img={img2} title="Define What Matters" />
         <Product img={img3} title="Be the Change in Wearable Wellness" />
         <Product img={img4} title="Discover Personalised Comforts" />
       </Container>
 
-      <Text data-scroll data-scroll-speed="-4">
+      <Text data-scroll data-scroll-speed="-2">
       We believe your opinions carry incredible weight.
       When you engage with us, you’re not just filling out a form or clicking a
       box—you’re directly influencing the future of everyday products in ways that count.
