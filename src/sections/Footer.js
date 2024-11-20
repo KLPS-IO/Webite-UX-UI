@@ -21,6 +21,7 @@ const Section = styled.section`
 `;
 
 const LogoContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,6 +40,7 @@ const LogoContainer = styled.div`
     }
   }
 `;
+
 
 const FooterComponent = styled(motion.footer)`
   width: 80vw;
@@ -109,6 +111,29 @@ const Bottom = styled.div`
   }
 `;
 
+const Title = styled.h1`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: ${(props) => `calc(${props.theme.fontBig} - 5vw)`}; /* Adjust font size */
+  font-family: "Kaushan Script";
+  font-weight: 300;
+  text-align: center;
+  white-space: nowrap; /* Prevent text wrapping */
+  z-index: 5;
+
+  @media (max-width: 60em) {
+    font-size: ${(props) => `calc(${props.theme.fontBig} - 8vw)`};
+  }
+  @media (max-width: 48em) {
+    font-size: ${(props) => props.theme.fontxxl}; /* Further reduce size on smaller screens */
+  }
+`;
+
+
+
+
 const Footer = () => {
   const { scroll } = useLocomotiveScroll();
 
@@ -124,23 +149,24 @@ const Footer = () => {
 
   return (
     <Section>
-      <LogoContainer>
-        <svg width="600" height="400" viewBox="0 0 500 1300">
+      <LogoContainer data-scroll
+        data-scroll-speed="-2"
+        data-scroll-direction="horizontal">
+        <svg width="600" height="200" viewBox="0 0 500 1300">
 
         {/* First Shape */}
-        <polygon points="100,0 100,280 10 400 10,0" stroke="white" strokeWidth="15" fill="#FF00FF" />
+        <polygon points="100,0 100,280 0 400 1,0" stroke="white" strokeWidth="15" fill="#FF00FF" />
 
         {/* Small Bottom Middle Shape */}
         <polygon points="170,200 100,280 100,400 180,400 " stroke="white" strokeWidth="15" fill="#FF00FF" />
 
         {/* Right-side element */}
         <path d="M175,120 L330,0.3 L450,4 L300,145 L500,399 L379,399 Z" stroke="white" strokeWidth="15" fill="#FF00FF" />
-
         </svg>
-          {/* <img data-scroll data-scroll-speed="2" src={Logo} alt="KLPS" /> */}
-          {/* <h3 data-scroll data-scroll-speed="-1">
+        <Title>PRODUCT COMING SOON</Title>
+        <h3 data-scroll data-scroll-speed="-1">
             KLPS
-          </h3> */}
+          </h3>
       </LogoContainer>
       <FooterComponent
         initial={{ y: "-400px" }}
