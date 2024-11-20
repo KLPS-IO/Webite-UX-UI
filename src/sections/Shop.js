@@ -205,19 +205,12 @@ const Shop = () => {
   return (
     <Section ref={ref} id="shop">
       <Title data-scroll data-scroll-speed="-1">
-        Explore
+        Survey
       </Title>
       <Left>
         <p>
-          Imagine a space where every choice, every preference,
-          and every opinion you share shapes the future of comfort and wellness.
-          The KLPS platform invites you to go beyond simple feedback;
-          you’ll be part of an interactive journey that adapts and responds to your unique perspective.
-          Through our intelligent, conversational model,
-          you’ll experience a fully personalised exploration—one that
-          remembers what you care about and grows along with you.
-          Every interaction you have with KLPS adds to a larger vision,
-          one that ultimately reflects what you and others value most.
+          Imagine a space where your opinions and preferences help shape the future
+          of comfort and wellness.
           <br />
           <br />
         </p>
