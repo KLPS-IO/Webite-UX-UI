@@ -23,7 +23,7 @@ Ensure new repositories adhere to this convention for better collaboration.
 - components       => React components used to build this website
 - sections         => Includes sections such as Home, About, etc.
 - GlobalStyles.js  => Contains global styles for the entire application
-- Themes.js        => Contains color and font sizes as variables
+- Themes.js        => Contains colour and font sizes as variables
 ```
 
 ---
@@ -55,15 +55,16 @@ All fonts are sourced from:
 
 ## Resources
 
-**Walking Girl Video:**  
-Video by cottonbro from Pexels  
+**Walking Girl Video:**
+Video by cottonbro from Pexels
 [https://www.pexels.com/@cottonbro]
 
-**Images:**  
+**Images:**
 AI-generated.
 
 ---
-# Setting Up PostgreSQL for KLPS Project
+
+## Setting Up PostgreSQL for KLPS Project
 
 This document provides a step-by-step guide to setting up PostgreSQL for the KLPS (Kids, Ladies, Parents Solutions) project. This setup is essential for managing survey data and ensuring smooth integration with the rest of the stack.
 
@@ -75,8 +76,8 @@ Before proceeding, ensure you have the following installed on your machine:
 
 1. PostgreSQL (Latest version recommended).
 2. `psql` command-line tool.
-3. Python 3.x (for data processing).
-4. Required Python libraries: `pandas`, `sqlalchemy`.
+3. Node.js (Latest LTS version recommended).
+4. Required Node.js libraries: `pg` and `dotenv`.
 5. Database credentials and structure defined for KLPS.
 
 ---
@@ -100,6 +101,7 @@ sudo systemctl enable postgresql
 ### Windows
 1. Download the installer from [PostgreSQL Downloads](https://www.postgresql.org/download/).
 2. Follow the installation wizard.
+3. After installation, start the PostgreSQL service via the Services app or `pgAdmin`.
 
 ---
 
@@ -155,45 +157,50 @@ CREATE TABLE survey_processed_data (
 
 ### Create a `.env` file in your project root and add the following:
 ```
-DB_USER=postgres
-DB_PASSWORD=add password
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=klps
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=test123
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+POSTGRES_DB=klps
 ```
 
 Ensure that your application is configured to read these variables.
 
 ---
 
-## **Step 5: Load Initial Data**
+## **Step 5: Install Dependencies**
 
-### Use `COPY` to Import Data
-
-Prepare your CSV file (e.g., `cleaned_survey_data.csv`) and place it in an accessible directory. Then, run:
-```sql
-COPY survey_raw_data(name, location, age, job_title, profession_level, favourite_brands, underwear_changes, shopping_preference, main_underwear_type, relatable_statement, underwear_discomfort, priority_issues, favourite_brand_reason, willingness_to_pay, clip_off_preference)
-FROM '/path/to/cleaned_survey_data.csv'
-DELIMITER ','
-CSV HEADER;
+Run the following command to install required Node.js packages:
+```bash
+npm install pg dotenv
 ```
 
 ---
 
-## **Step 6: Connect PostgreSQL to Backend**
+## **Step 6: Configure `db.js`**
 
-### Example Node.js Configuration
 Add the following code to your `db.js` file:
+
 ```javascript
-const { Pool } = require("pg");
+require('dotenv').config(); // Load environment variables from .env
+const { Pool } = require('pg');
 
 const pool = new Pool({
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    database: process.env.DB_NAME,
+    user: process.env.POSTGRES_USER,
+    host: process.env.POSTGRES_HOST,
+    database: process.env.POSTGRES_DB,
+    password: process.env.POSTGRES_PASSWORD,
+    port: process.env.POSTGRES_PORT,
 });
+
+pool.connect()
+    .then(client => {
+        console.log('Connected to PostgreSQL');
+        client.release();
+    })
+    .catch(err => {
+        console.error('Error connecting to PostgreSQL:', err.stack);
+    });
 
 module.exports = pool;
 ```
@@ -220,6 +227,20 @@ Run your server and check if it connects to PostgreSQL without errors:
 node index.js
 ```
 
+If successful, you should see:
+```
+Connected to PostgreSQL
+```
+
+---
+
+## **Windows Tip**
+
+- If using Windows, ensure your `PATH` environment variable includes the directory where PostgreSQL binaries (e.g., `psql.exe`) are installed. You can add this directory via:
+  1. Control Panel > System > Advanced System Settings > Environment Variables.
+  2. Edit the `Path` variable and add the PostgreSQL binary directory (e.g., `C:\Program Files\PostgreSQL\<version>\bin`).
+- Run the commands in PowerShell or Command Prompt with administrative privileges if needed.
+
 ---
 
 ## **Troubleshooting**
@@ -227,7 +248,7 @@ node index.js
 ### Common Issues
 
 1. **`psql: could not connect to server`**
-   - Ensure PostgreSQL is running: `sudo systemctl start postgresql`.
+   - Ensure PostgreSQL is running: `sudo systemctl start postgresql` (Linux) or restart via Services (Windows).
 
 2. **Permission Denied Errors**
    - Check file and folder permissions where the CSV is stored.
@@ -249,10 +270,3 @@ node index.js
 1. Clean and process data using pandas.
 2. Integrate with Snowflake for advanced analytics.
 3. Build dashboards for insights and reporting.
-
----
-
-For further questions or troubleshooting, refer to the PostgreSQL documentation or consult the project team.
-
-
-
