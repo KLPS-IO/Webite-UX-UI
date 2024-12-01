@@ -13,7 +13,11 @@ dist/
 out/
 
 # Environment variables
+venv/
 .env
+data/input/
+data/output/
+
 .env.local
 .env.*.local
 
