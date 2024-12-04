@@ -140,7 +140,7 @@ const CoverVideo = () => {
           data-scroll-delay="0.04"
           data-scroll-speed="2"
         >
-          KIDS. LADIES. PARENTS, SOLUTIONS
+          KIDS. LADIES. PARENTS, SPECIALISTS
           {/* SPECIALISTS */}
         </motion.h2>
       </Title>
