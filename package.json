@@ -62,6 +62,7 @@
   "author": "Emma Mendez",
   "license": "ISC",
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.0-placeholder-for-preset-env.2"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.0-placeholder-for-preset-env.2",
+    "sass": "^1.82.0"
   }
 }
