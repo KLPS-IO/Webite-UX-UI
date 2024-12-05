@@ -94,6 +94,11 @@ The app is served locally using **Apache HTTP Server** for testing purposes. Ste
    ```
 3. Access the app via [http://localhost:8080](http://localhost:8080).
 
+TROUBLESHOOTING when lsof -i :8080 doesnt work try
+ps aux | grep node
+kill -9 <PID> i.e.30250
+i.e. kill -9 30250
+
 ---
 
 ## **Fonts**
@@ -117,6 +122,32 @@ All fonts used in the project are sourced from:
 
 ---
 
+### **Preparing Python**
+
+### Mac/Win
+python3 -m pip install --upgrade pip
+python3 -m pip --version
+Win -  py -m pip install requests
+
+### Change to Venv
+python3 -m venv venv
+
+### **Activate the Virtual Environment**
+source venv/bin/activate
+Win - .\venv\Scripts\activate
+
+### **  Upgrade pip (Optional but Recommended) **
+pip install --upgrade pip
+
+### ** Install packages in requirements.txt file **
+
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+<!-- snowflake-connector-python  -->
+
+
+
 ## **Testing Checklist**
 
 ### **1. Verify UI**
@@ -126,7 +157,7 @@ All fonts used in the project are sourced from:
 
 ### **2. Backend Connectivity**
 
-- Test `test.py`:
+- Test `python test.py`:
   - Ensure PostgreSQL data retrieval is functional.
   - Confirm processed data outputs (`cleaned_survey_data.csv` and `processed_data.json`).
 
@@ -176,6 +207,7 @@ Before proceeding, ensure you have the following installed on your machine:
 ```bash
 brew install postgresql
 brew services start postgresql
+
 ```
 
 ### Linux
@@ -200,8 +232,13 @@ sudo systemctl enable postgresql
 ### Log in to `psql`
 
 ```bash
+psql postgres 
+or
 psql -U postgres
 ```
+
+### ** Create a User **
+CREATE USER myuser WITH PASSWORD 'mypassword';
 
 ### Create the KLPS database
 
