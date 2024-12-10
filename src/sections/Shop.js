@@ -16,6 +16,7 @@ import img7 from "../assets/Images/archNaturalFibres.webp";
 import img8 from "../assets/Images/archSexy.webp";
 import img9 from "../assets/Images/archGrownWoman.webp";
 import img10 from "../assets/Images/archLeavingRoom.png";
+import SurveyButton from "../components/SurveyButton";
 
 const Section = styled.section`
   min-height: 100vh;
@@ -213,6 +214,7 @@ const Shop = () => {
           of comfort and wellness.
           <br />
           <br />
+          <SurveyButton/>
         </p>
       </Left>
       <Right ref={horizontalRef}>
