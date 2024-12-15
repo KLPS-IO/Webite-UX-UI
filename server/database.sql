@@ -1,8 +1,8 @@
 -- Step 1: Create the Database
-CREATE DATABASE klps;
+CREATE DATABASE limesurvey;
 
 -- Step 2: Connect to the Database
-\c klps;
+\c limesurvey;
 
 -- Step 3: Create Tables
 
