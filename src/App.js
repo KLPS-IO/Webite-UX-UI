@@ -26,7 +26,6 @@ function App() {
       setLoaded(true);
     }, 3000);
   }, [])
-  
 
   return (
     <>
