@@ -827,11 +827,11 @@ $config['encryptionnonce'] = '';
 $config['encryptionsecretboxkey'] = '';
 
 $config['passwordValidationRules'] = array(
-    'min' => 8,
+    'min' => 4,
     'max' => 0,
     'lower' => 0,
-    'upper' => 1,
-    'numeric' => 1,
+    'upper' => 0,
+    'numeric' => 0,
     'symbol' => 0,
 );
 

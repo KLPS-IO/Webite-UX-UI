@@ -1,4 +1,4 @@
-require('dotenv').config(); // Load environment variables from .env
+require('dotenv').config({ path: '/Users/emmamendez/.env' }); // Load environment variables from .env
 const { Pool } = require('pg');
 
 // PostgreSQL configuration using environment variables

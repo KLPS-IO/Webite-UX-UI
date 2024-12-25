@@ -68,7 +68,7 @@ return array(
 
 		// If URLs generated while running on CLI are wrong, you need to uncomment the following line and set your
 		// public URL (the URL facing survey participants). You will also need to set the request->baseUrl in the section above.
-		//'publicurl' => 'https://www.example.org/limesurvey',
+		'publicurl' => 'https://1887-84-66-90-227.ngrok-free.app/limesurvey',
 
 		// Update default LimeSurvey config here
 	)
