@@ -407,7 +407,8 @@ var ThemeOptions = function () {
         ['add', 'replace', 'remove'].forEach(function (action) {
             if (currentValue.hasOwnProperty(action)) {
                 currentValue[action] = currentValue[action].filter(function (item) {
-                    return !(/^css\/variations\/.*$/.test(item));
+                    let itemToTest = action === 'replace' ? item[1] : item;
+                    return !(/^css\/variations\/.*$/.test(itemToTest));
                 });
                 if (currentValue[action].length) {
                     empty = false;
@@ -424,15 +425,18 @@ var ThemeOptions = function () {
     // update the files_css field to be saved in the database
     var addVariationToField = function (selectedVariation, filesCssId, selectedMode) {
         let filesCss = [];
+
         try {
             filesCss = JSON.parse($(filesCssId).val());
         } catch (error) {
         }
+
         if (!filesCss.hasOwnProperty(selectedMode)) {
             filesCss[selectedMode] = [];
         }
+
         if (selectedMode === 'replace') {
-            filesCss[selectedMode].push(selectedVariation);
+            filesCss[selectedMode].push([selectedVariation]);
         } else {
             filesCss[selectedMode].unshift(selectedVariation);
         }

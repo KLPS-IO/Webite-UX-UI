@@ -1,4 +1,4 @@
-require('dotenv').config(); // Load environment variables from .env file
+require('dotenv').config({ path: '/Users/emmamendez/.env' }); // Load environment variables from .env file
 const express = require('express');
 const { Client } = require('pg');
 const app = express();

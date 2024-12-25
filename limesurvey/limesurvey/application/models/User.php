@@ -45,17 +45,16 @@ use LimeSurvey\Models\Services\UserManager;
  * @property UserGroup[] $groups
  * @property int $user_status User's account status (1: activated | 0: deactivated)
  */
-
 class User extends LSActiveRecord
 {
     /** @var int maximum time the validation_key is valid*/
-    public const MAX_EXPIRATION_TIME_IN_HOURS = 48;
+    const MAX_EXPIRATION_TIME_IN_HOURS = 48;
 
     /** @var int maximum days the validation key is valid */
-    private const MAX_EXPIRATION_TIME_IN_DAYS = 2;
+    const MAX_EXPIRATION_TIME_IN_DAYS = 2;
 
     /** @var int  maximum length for the validation_key*/
-    private const MAX_VALIDATION_KEY_LENGTH = 38;
+    const MAX_VALIDATION_KEY_LENGTH = 38;
 
     /**
      * @var string $lang Default value for user language
@@ -353,17 +352,8 @@ class User extends LSActiveRecord
         return false;
     }
 
-
     /**
-     * Checks the strength of a given password against configured validation rules.
-     *
-     * This function evaluates the password strength based on length, presence of lowercase
-     * and uppercase letters, numbers, and special characters. It also allows for plugin-based
-     * additional password requirement checks.
-     *
-     * @param string $password The password to check for strength
-     *
-     * @return string An error message if the password doesn't meet the requirements, or an empty string if it's valid
+     * @todo document me
      */
     public function checkPasswordStrength(string $password)
     {
@@ -374,44 +364,39 @@ class User extends LSActiveRecord
         $number    = preg_match_all('@[0-9]@', $password);
         $specialChars = preg_match_all('@[^\w]@', $password);
 
-        $resultDefaultRules = "";
+        $error = "";
         if ((int) $settings['min'] > 0) {
             if ($length < $settings['min']) {
-                $resultDefaultRules = sprintf(ngT('Password must be at least %d character long|Password must be at least %d characters long', $settings['min']), $settings['min']);
+                $error = sprintf(ngT('Password must be at least %d character long|Password must be at least %d characters long', $settings['min']), $settings['min']);
             }
         }
         if ((int) $settings['max'] > 0) {
             if ($length > $settings['max']) {
-                $resultDefaultRules = sprintf(ngT('Password must be at most %d character long|Password must be at most %d characters long', $settings['max']), $settings['max']);
+                $error = sprintf(ngT('Password must be at most %d character long|Password must be at most %d characters long', $settings['max']), $settings['max']);
             }
         }
         if ((int) $settings['lower'] > 0) {
             if ($lowercase < $settings['lower']) {
-                $resultDefaultRules = sprintf(ngT('Password must include at least %d lowercase letter|Password must include at least %d lowercase letters', $settings['lower']), $settings['lower']);
+                $error = sprintf(ngT('Password must include at least %d lowercase letter|Password must include at least %d lowercase letters', $settings['lower']), $settings['lower']);
             }
         }
         if ((int) $settings['upper'] > 0) {
             if ($uppercase < $settings['upper']) {
-                $resultDefaultRules = sprintf(ngT('Password must include at least %d uppercase letter|Password must include at least %d uppercase letters', $settings['upper']), $settings['upper']);
+                $error = sprintf(ngT('Password must include at least %d uppercase letter|Password must include at least %d uppercase letters', $settings['upper']), $settings['upper']);
             }
         }
         if ((int) $settings['numeric'] > 0) {
             if ($number < $settings['numeric']) {
-                $resultDefaultRules = sprintf(ngT('Password must include at least %d number|Password must include at least %d numbers', $settings['numeric']), $settings['numeric']);
+                $error = sprintf(ngT('Password must include at least %d number|Password must include at least %d numbers', $settings['numeric']), $settings['numeric']);
             }
         }
         if ((int) $settings['symbol'] > 0) {
             if ($specialChars < $settings['symbol']) {
-                $resultDefaultRules = sprintf(ngT('Password must include at least %d special character|Password must include at least %d special characters', $settings['symbol']), $settings['symbol']);
+                $error = sprintf(ngT('Password must include at least %d special character|Password must include at least %d special characters', $settings['symbol']), $settings['symbol']);
             }
         }
-        $passwordOk = ($resultDefaultRules === '');
-        $oPasswordTestEvent = new PluginEvent('checkPasswordRequirement');
-        $oPasswordTestEvent->set('password', $password);
-        $oPasswordTestEvent->set('passwordOk', $passwordOk);
-        $oPasswordTestEvent->set('passwordError', $resultDefaultRules);
-        Yii::app()->getPluginManager()->dispatchEvent($oPasswordTestEvent);
-        return ($oPasswordTestEvent->get('passwordOk') ? '' : $oPasswordTestEvent->get('passwordError'));
+
+        return($error);
     }
 
     /**
@@ -424,7 +409,6 @@ class User extends LSActiveRecord
      *
      * @param string $newPassword
      * @param string $oldPassword
-
      * @param string $repeatPassword
      * @return string empty string means everything is ok, otherwise error message is returned
      */

@@ -31,15 +31,13 @@ class QuestionCreate extends Question
         if (empty($questionThemeName)) {
             $questionThemeName = QuestionTheme::model()->getBaseThemeNameForQuestionType($questionType);
         }
-
-        $oQuestion = new QuestionCreate();
-        $oQuestion->qid = 0;
-        $oQuestion->sid = $iSurveyId;
-        $oQuestion->gid = $gid;
-
-        $oQuestion->assignTemporaryTitle();
-
+        $oCurrentGroup = QuestionGroup::model()->findByPk($gid);
+        $temporaryTitle =
+            'G' . str_pad((string) $oCurrentGroup->group_order, 2, '0', STR_PAD_LEFT)
+            . 'Q' . str_pad((safecount($oSurvey->baseQuestions) + 1), 2, '0', STR_PAD_LEFT);
         $aQuestionData = [
+                'sid' => $iSurveyId,
+                'gid' => $gid,
                 'type' => $questionType,
                 'other' => 'N',
                 'mandatory' => 'N',
@@ -47,10 +45,13 @@ class QuestionCreate extends Question
                 'relevance' => 1,
                 'group_name' => '',
                 'modulename' => '',
+                'title' => $temporaryTitle,
                 'question_order' => 9999,
                 'question_theme_name' => $questionThemeName,
         ];
 
+        $oQuestion = new QuestionCreate();
+        $oQuestion->qid = 0;
         $oQuestion->setAttributes($aQuestionData, false);
         if ($oQuestion == null) {
             throw new CException("Object creation failed, input array malformed or invalid");
@@ -99,28 +100,5 @@ class QuestionCreate extends Question
             return $this->questionType->answerscales == 1 ? [[]] : [[],[]];
         }
         return null;
-    }
-
-    /**
-     * Assigns a temporary title to the question.
-     * @throws Exception
-     */
-    public function assignTemporaryTitle()
-    {
-        $survey = Survey::model()->findByPk($this->sid);
-        $group = QuestionGroup::model()->findByPk($this->gid);
-        $isTitleValid = false;
-        for ($i = 1; $i < 50; $i++) {
-            $this->title = 'G' . str_pad((string) $group->group_order, 2, '0', STR_PAD_LEFT)
-                . 'Q' . str_pad((safecount($survey->baseQuestions) + $i), 2, '0', STR_PAD_LEFT);
-            if ($this->validate(['title'])) {
-                $isTitleValid = true;
-                break;
-            }
-        }
-        if (!$isTitleValid) {
-            $this->title = null;
-            throw new Exception('Failed to generate title for question');
-        }
     }
 }

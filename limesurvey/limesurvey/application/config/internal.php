@@ -289,7 +289,6 @@ $internalConfig = array(
                 'empty'                   => 'empty',
                 'count'                   => 'LS_Twig_Extension::safecount',
                 'reset'                   => 'reset',
-                'strip_tags'              => 'strip_tags',
                 'in_array'                => 'in_array',
                 'in_multiarray'           => 'LS_Twig_Extension::in_multiarray',
                 'array_search'            => 'array_search',
@@ -350,7 +349,7 @@ $internalConfig = array(
                     'capitalize',
                     'lower',
                     'upper',
-                    'striptags',
+                    'strip_tags',
                     'number_format',
                     'isAbsoluteUrl'
                 ),
